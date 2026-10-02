@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useRef, useSyncExternalStore, type ReactNode } from "react";
 
@@ -8,15 +9,18 @@ import { DottedPattern } from "@/components/ui/dotted-pattern";
 type Polaroid = {
   id: string;
   rotate: number;
+  src?: string;
+  alt?: string;
 };
 
+// Cards without a src fall back to the dotted placeholder.
 const PHOTOS: Polaroid[] = [
-  { id: "a", rotate: -8 },
-  { id: "b", rotate: 6 },
-  { id: "c", rotate: -4 },
-  { id: "d", rotate: 7 },
-  { id: "e", rotate: -6 },
-  { id: "f", rotate: 5 },
+  { id: "a", rotate: -8, src: "/about/desk-portrait.webp", alt: "Krishna at the desk" },
+  { id: "b", rotate: 6, src: "/about/thinking.webp", alt: "Krishna thinking over a laptop" },
+  { id: "c", rotate: -4, src: "/projects/siri-llm.webp", alt: "Siri-LLM diagram" },
+  { id: "d", rotate: 7, src: "/krishna_hover.webp", alt: "Portrait of Krishna" },
+  { id: "e", rotate: -6, src: "/projects/local-rag.webp", alt: "Local RAG diagram" },
+  { id: "f", rotate: 5, src: "/projects/nlp-teaching.webp", alt: "NLP teaching notebook" },
 ];
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -74,7 +78,20 @@ function PolaroidCard({
       }}
       className="relative aspect-[3/4] w-[clamp(6rem,11vw,9rem)] shrink-0 overflow-hidden rounded-2xl border-6 border-neutral-300/40 bg-white p-1.5 dark:border-white/15 dark:bg-neutral-900"
     >
-      <DottedPattern className="relative h-full w-full overflow-hidden rounded-xl" />
+      {photo.src ? (
+        <div className="relative h-full w-full overflow-hidden rounded-xl bg-neutral-900">
+          <Image
+            src={photo.src}
+            alt={photo.alt ?? ""}
+            fill
+            sizes="(min-width: 640px) 9rem, 6rem"
+            draggable={false}
+            className="pointer-events-none object-cover select-none"
+          />
+        </div>
+      ) : (
+        <DottedPattern className="relative h-full w-full overflow-hidden rounded-xl" />
+      )}
     </motion.div>
   );
 }
