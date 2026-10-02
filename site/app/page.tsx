@@ -1,6 +1,7 @@
 import { ContactCard } from "@/components/contact/contact-card";
 import { Hero } from "@/components/hero/hero";
 import { Projects } from "@/components/projects/projects";
+import { WarpBanner } from "@/components/warp-banner/warp-banner";
 import { createMetadata, siteConfig } from "@/lib/metadata";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
@@ -16,6 +17,7 @@ export default function HomePage(): ReactNode {
     <main id="main-content" className="flex flex-1 flex-col gap-20 sm:gap-28">
       <Hero />
       <Projects withHeadline viewMoreVisible />
+      <WarpBanner />
       <ContactCard />
       <div className="h-12 sm:h-16" />
     </main>
