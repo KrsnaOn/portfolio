@@ -1,5 +1,7 @@
 # Krishna Barnwal — Portfolio
 
+**Live site:** https://portfolio-lemon-eta-89.vercel.app/
+
 Personal portfolio site. Built on the [React Bits Pro portfolio template](https://github.com/DavidHDev/rbp-portfolio) by David Haz, with all content, imagery and configuration replaced.
 
 **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Motion · WebGL flow shader · Lenis smooth scroll · Matter.js

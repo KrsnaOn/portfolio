@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Krishna Barnwal",
   description:
     "AI/ML engineer building language models from the token up — BPE tokenizers, self-attention, and local RAG pipelines, shipped into tools people can use.",
-  url: "https://krishnabarnwal.vercel.app",
+  url: "https://portfolio-lemon-eta-89.vercel.app",
   ogImage: "/og-image.png",
   creator: "@KrsnaOn",
   authors: [
